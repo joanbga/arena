@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81fc7bb1c3dea44e6bed54ca5e88f8d1, type: 3}
-  m_Name: ExitGame
+  m_Script: {fileID: 11500000, guid: c15e3f25d3534cd4096abf13bc41be3f, type: 3}
+  m_Name: LoadMenuChannel
   m_EditorClassIdentifier: 
   description: 
