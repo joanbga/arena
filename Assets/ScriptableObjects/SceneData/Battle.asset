@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77a8fdf19a019cc46be98caa98ca554b, type: 3}
+  m_Name: Battle
+  m_EditorClassIdentifier: 
+  sceneAsset: {fileID: 102900000, guid: 410bbd2192b0142b69858fc42767c150, type: 3}
+  scenePath: Assets/Scenes/Battle.unity
+  shortDescription: 
+  music: {fileID: 0}
+  locationName: 
+  enemiesCount: 0
