@@ -14,14 +14,6 @@
                     "interactions": ""
                 },
                 {
-                    "name": "Strafe",
-                    "type": "Value",
-                    "id": "48cca959-cfbe-491e-8b1d-d4d9cd56a2a9",
-                    "expectedControlType": "Axis",
-                    "processors": "",
-                    "interactions": ""
-                },
-                {
                     "name": "Look",
                     "type": "PassThrough",
                     "id": "8e40fa78-d06c-43d3-81b7-9c47ab9e6cba",
@@ -57,39 +49,6 @@
                     "action": "Jump",
                     "isComposite": false,
                     "isPartOfComposite": false
-                },
-                {
-                    "name": "1D Axis",
-                    "id": "01cedded-1a83-4d7c-b7a5-731dc18af3fc",
-                    "path": "1DAxis",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Strafe",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "negative",
-                    "id": "53d0eb9a-7a14-4ac5-9425-aa9f365a3b23",
-                    "path": "<Keyboard>/q",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Strafe",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "positive",
-                    "id": "860a4c58-6ca0-4e1b-a391-57396cc15250",
-                    "path": "<Keyboard>/e",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Strafe",
-                    "isComposite": false,
-                    "isPartOfComposite": true
                 },
                 {
                     "name": "",

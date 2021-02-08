@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(CharacterController))]
 public class PlayerMovement : MonoBehaviour
 {
     #region Serialized fields
@@ -11,11 +11,12 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float          _movementSpeed;
     [SerializeField] private float          _rotationSpeed;
     [SerializeField] private float          _jumpForce;
+    [SerializeField] private float          _gravity = 6f;
 
     #endregion
 
     #region Private fields
-    private Rigidbody rb;
+    private CharacterController _controller;
 
     private Vector3 _velocity;
     private float _rotation;
@@ -25,7 +26,7 @@ public class PlayerMovement : MonoBehaviour
     #region MonoBehaviour Callbacks
     private void Awake()
     {
-        rb = GetComponent<Rigidbody>();
+        _controller = GetComponent<CharacterController>();
     }
 
     private void OnEnable()
@@ -46,6 +47,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        ApplyGravity();
         PerformRotation();
         PerformMovement();
     }
@@ -54,17 +56,19 @@ public class PlayerMovement : MonoBehaviour
     #region Input Callbacks
     public void Jump()
     {
-        Debug.Log("Jump");
+        if (!_controller.isGrounded)
+            return;
+        _velocity.y = _jumpForce;
     }
 
     public void Move(Vector2 dir)
     {
-        _velocity = new Vector3(dir.x * _movementSpeed * Time.fixedDeltaTime, rb.velocity.y, dir.y * _movementSpeed * Time.fixedDeltaTime);
+        _velocity = new Vector3(dir.x, _velocity.y, dir.y);
     }
 
     public void Strafe(float value)
     {
-        _velocity = new Vector3(value * Time.fixedDeltaTime, rb.velocity.y, rb.velocity.z);
+        _velocity = new Vector3(value, _velocity.y, _velocity.z);
     }
 
     public void Rotate(float value)
@@ -81,7 +85,12 @@ public class PlayerMovement : MonoBehaviour
 
     private void PerformMovement()
     {
-        transform.Translate(_velocity);
+        _controller.Move(transform.TransformDirection(_velocity) * _movementSpeed * Time.fixedDeltaTime);
+    }
+
+    private void ApplyGravity()
+    {
+        _velocity.y -= _gravity * Time.fixedDeltaTime;
     }
     #endregion
 }
