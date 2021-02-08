@@ -3,7 +3,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.Events;
 
 [CreateAssetMenu(fileName = "InputReader", menuName = "Game/Input Reader")]
-public class InputReader : ScriptableObject, GameInput.IGameplayActions
+public class InputReader : ScriptableObject, GameInput.IGameplayActions, GameInput.ISpellbarActions
 {
 	// Assign delegate{} to events to initialise them with an empty delegate
 	// so we can skip the null check when we use them
@@ -17,6 +17,10 @@ public class InputReader : ScriptableObject, GameInput.IGameplayActions
 	public event UnityAction<Vector2> lookEvent = delegate { };
 	public event UnityAction<float> zoomEvent = delegate { };
 
+	public event UnityAction<bool> rightButtonEvent = delegate { };
+
+	public event UnityAction<int> useSpellEvent = delegate { };
+
 	private GameInput gameInput;
 
 	private void OnEnable()
@@ -25,9 +29,10 @@ public class InputReader : ScriptableObject, GameInput.IGameplayActions
 		{
 			gameInput = new GameInput();
 			gameInput.Gameplay.SetCallbacks(this);
+			gameInput.Spellbar.SetCallbacks(this);
 		}
-
 		EnableGameplayInput();
+		EnableSpellbarInput();
 	}
 
 	private void OnDisable()
@@ -67,6 +72,11 @@ public class InputReader : ScriptableObject, GameInput.IGameplayActions
 		gameInput.Gameplay.Enable();
 	}
 
+	public void EnableSpellbarInput()
+    {
+		gameInput.Spellbar.Enable();
+    }
+
 	public void DisableAllInput()
 	{
 		gameInput.Gameplay.Disable();
@@ -80,4 +90,42 @@ public class InputReader : ScriptableObject, GameInput.IGameplayActions
     {
 		zoomEvent.Invoke(context.ReadValue<float>());
     }
+
+    public void OnRightClick(InputAction.CallbackContext context)
+    {
+		rightButtonEvent.Invoke(context.phase == InputActionPhase.Performed);
+    }
+
+	private void HandleSpell(InputAction.CallbackContext context, int n)
+    {
+		if (context.phase == InputActionPhase.Performed)
+        {
+			useSpellEvent.Invoke(n);
+		}
+    }
+
+    public void OnSpell1(InputAction.CallbackContext context)
+    {
+		HandleSpell(context, 1);
+    }
+
+    public void OnSpell2(InputAction.CallbackContext context)
+    {
+		HandleSpell(context, 2);
+	}
+
+    public void OnSpell3(InputAction.CallbackContext context)
+    {
+		HandleSpell(context, 3);
+	}
+
+    public void OnSpell4(InputAction.CallbackContext context)
+    {
+		HandleSpell(context, 4);
+	}
+
+    public void OnSpell5(InputAction.CallbackContext context)
+    {
+		HandleSpell(context, 5);
+	}
 }

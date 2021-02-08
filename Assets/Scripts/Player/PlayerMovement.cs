@@ -20,6 +20,7 @@ public class PlayerMovement : MonoBehaviour
 
     private Vector3 _velocity;
     private float _rotation;
+    private bool _mustStrafe = false;
 
     #endregion
 
@@ -35,6 +36,7 @@ public class PlayerMovement : MonoBehaviour
         _inputReader.moveEvent += Move;
         _inputReader.strafeEvent += Strafe;
         _inputReader.rotateEvent += Rotate;
+        _inputReader.rightButtonEvent += (bool press) => { _mustStrafe = press; };
     }
 
     private void OnDisable()
@@ -73,13 +75,18 @@ public class PlayerMovement : MonoBehaviour
 
     public void Rotate(float value)
     {
-        _rotation = value;
+            _rotation = value;
     }
     #endregion
 
     #region Private Methods
     private void PerformRotation()
     {
+        if (_mustStrafe)
+        {
+            _velocity.x = _rotation;
+            return;
+        }
         transform.Rotate(0, _rotation * _rotationSpeed * Time.fixedDeltaTime, 0);
     }
 

@@ -44,6 +44,14 @@
                     "expectedControlType": "Axis",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "RightClick",
+                    "type": "Button",
+                    "id": "f5b05e0e-f559-4865-9e64-0c8c256d4460",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -165,6 +173,120 @@
                     "processors": "Clamp(min=-0.02,max=0.02)",
                     "groups": "",
                     "action": "ZoomCamera",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ee62de31-4ad4-47a6-bc53-04095723dba1",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RightClick",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Spellbar",
+            "id": "af80cc93-ef98-421c-ae70-5854ac7f381e",
+            "actions": [
+                {
+                    "name": "Spell1",
+                    "type": "Button",
+                    "id": "0761f99f-14ac-4cd8-889d-0183efd62b1d",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Spell2",
+                    "type": "Button",
+                    "id": "e0675ce7-4920-43b4-9a64-3149f895aca1",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Spell3",
+                    "type": "Button",
+                    "id": "2d91cc42-639a-4f70-aaf6-6595dcf75bfd",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Spell4",
+                    "type": "Button",
+                    "id": "fbdff8f7-71cf-492e-ae35-67c42c05c670",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Spell5",
+                    "type": "Button",
+                    "id": "af708d65-f4aa-4b6a-b224-fe20b334eb09",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "3382b757-2137-47c9-b3f3-062b21a1daf9",
+                    "path": "<Keyboard>/1",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Spell1",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9b425f8e-4ca0-4963-ade2-edb7012b19e1",
+                    "path": "<Keyboard>/2",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Spell2",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "84318341-f4dc-4d2d-bfc1-e08e0c5ce53a",
+                    "path": "<Keyboard>/3",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Spell3",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d25951c7-aa25-4ab1-91ee-bbfadd0dda3c",
+                    "path": "<Keyboard>/4",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Spell4",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4abcc8f8-d488-4e70-8c1c-f6aeb18ea7bd",
+                    "path": "<Keyboard>/5",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Spell5",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
