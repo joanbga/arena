@@ -15,6 +15,7 @@ public class InputReader : ScriptableObject, GameInput.IGameplayActions
 	public event UnityAction<float> strafeEvent = delegate { };
 
 	public event UnityAction<Vector2> lookEvent = delegate { };
+	public event UnityAction<float> zoomEvent = delegate { };
 
 	private GameInput gameInput;
 
@@ -57,7 +58,8 @@ public class InputReader : ScriptableObject, GameInput.IGameplayActions
 
 	public void OnLook(InputAction.CallbackContext context)
 	{
-		lookEvent.Invoke(context.ReadValue<Vector2>().normalized);
+		if (LeftMouseDown() || RightMouseDown())
+			lookEvent.Invoke(context.ReadValue<Vector2>());
 	}
 
 	public void EnableGameplayInput()
@@ -71,4 +73,11 @@ public class InputReader : ScriptableObject, GameInput.IGameplayActions
 	}
 
 	public bool LeftMouseDown() => Mouse.current.leftButton.isPressed;
+
+	public bool RightMouseDown() => Mouse.current.rightButton.isPressed;
+
+	public void OnZoomCamera(InputAction.CallbackContext context)
+    {
+		zoomEvent.Invoke(context.ReadValue<float>());
+    }
 }
