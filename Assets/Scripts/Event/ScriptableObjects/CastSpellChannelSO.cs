@@ -4,9 +4,9 @@ using UnityEngine.Events;
 [CreateAssetMenu(menuName = "Events/Cast Spell Event Channel")]
 public class CastSpellChannelSO : ScriptableObject
 {
-	public UnityAction<GameObject, GameObject, int> OnCastSpell;
+	public UnityAction<GUnit, GUnit, int> OnCastSpell;
 
-	public void RaiseEvent(GameObject caster, GameObject target, int buttonNumber)
+	public void RaiseEvent(GUnit caster, GUnit target, int buttonNumber)
 	{
 		if (OnCastSpell != null)
 		{

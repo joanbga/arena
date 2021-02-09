@@ -50,14 +50,13 @@ public class SpellManager : MonoBehaviour
     #endregion
 
     #region Private Methods
-    private void OnCastSpell(GameObject caster, GameObject target, int buttonNumber)
+    private void OnCastSpell(GUnit caster, GUnit target, int buttonNumber)
     {
         if (buttonNumber < 1 || buttonNumber > _selectedSpells.Count)
         {
             Debug.LogError("Cannot access to spell number: " + buttonNumber);
             return;
         }
-        Debug.Log("Casting spell: " + _selectedSpells[buttonNumber - 1].spellName);
         _selectedSpells[buttonNumber - 1].CastSpell(caster, target);
     }
 

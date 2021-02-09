@@ -330,6 +330,7 @@ GameObject:
   - component: {fileID: 737043642}
   - component: {fileID: 737043645}
   - component: {fileID: 737043646}
+  - component: {fileID: 737043647}
   m_Layer: 0
   m_Name: ThirdPersonPlayer
   m_TagString: Untagged
@@ -430,6 +431,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _inputReader: {fileID: 11400000, guid: 299500143a4e9431cb34e34dd6be26dd, type: 2}
   castSpellChannel: {fileID: 11400000, guid: 4244759e2e94940239eda89a212f6841, type: 2}
+--- !u!114 &737043647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 737043641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d168fd0fe52b441697742566e531bbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1186682102
 GameObject:
   m_ObjectHideFlags: 0

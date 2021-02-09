@@ -10,8 +10,19 @@ public class SpellBaseSO : ScriptableObject
     public float power;
     public bool isUltime;
 
-    public virtual void CastSpell(GameObject caster, GameObject target)
+    public virtual void CastSpell(GUnit caster, GUnit target)
     {
-        throw new NotImplementedException();
+        string casterName = string.Empty;
+        string targetName = string.Empty;
+
+        if (caster)
+        {
+            casterName = caster.name;
+        }
+        if (target)
+        {
+            targetName = target.name;
+        }
+        Debug.Log("Casting spell from" + casterName + " to: " + targetName);
     }
 }
