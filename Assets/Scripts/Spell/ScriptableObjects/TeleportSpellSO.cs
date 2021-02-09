@@ -9,7 +9,5 @@ public class TeleportSpellSO : SpellBaseSO
         pos.x += 2;
         pos.z += 2;
         caster.GetComponent<CharacterController>().Move(caster.transform.TransformDirection(new Vector3(0f, 0f, range)));
-        // caster.transform.position = pos;
-        // caster.GetComponent<CharacterController>().enabled = true;
     }
 }
