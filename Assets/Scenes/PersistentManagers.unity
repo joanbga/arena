@@ -360,7 +360,7 @@ MonoBehaviour:
   castSpellEvent: {fileID: 11400000, guid: 4244759e2e94940239eda89a212f6841, type: 2}
   spells:
   - {fileID: 11400000, guid: 145b64defd3ce4b5196523be490e9fa6, type: 2}
-  selectedSpells: []
+  - {fileID: 11400000, guid: 8241efd999414453e82363a69bbfbd9f, type: 2}
 --- !u!4 &1691921211
 Transform:
   m_ObjectHideFlags: 0

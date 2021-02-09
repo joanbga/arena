@@ -24,7 +24,6 @@ public class SpellManager : MonoBehaviour
     #region Monobehaviour callbacks
     private void OnEnable()
     {
-        _inputReader.useSpellEvent += HandleCastSpell; // To Move in Player
         if (castSpellEvent)
         {
             castSpellEvent.OnCastSpell += OnCastSpell;
@@ -33,7 +32,6 @@ public class SpellManager : MonoBehaviour
 
     private void OnDisable()
     {
-        _inputReader.useSpellEvent -= HandleCastSpell; // To Move in Player
         if (castSpellEvent)
         {
             castSpellEvent.OnCastSpell -= OnCastSpell;
@@ -52,10 +50,6 @@ public class SpellManager : MonoBehaviour
     #endregion
 
     #region Private Methods
-    private void HandleCastSpell(int n) // To Move in Player
-    {
-        castSpellEvent.RaiseEvent(null, null, n);
-    }
     private void OnCastSpell(GameObject caster, GameObject target, int buttonNumber)
     {
         if (buttonNumber < 1 || buttonNumber > _selectedSpells.Count)
@@ -64,6 +58,7 @@ public class SpellManager : MonoBehaviour
             return;
         }
         Debug.Log("Casting spell: " + _selectedSpells[buttonNumber - 1].spellName);
+        _selectedSpells[buttonNumber - 1].CastSpell(caster, target);
     }
 
     private void InitSpellIds()
